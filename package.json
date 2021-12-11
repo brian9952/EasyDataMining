@@ -11,7 +11,7 @@
 		"vite": "^2.7.1"
 	},
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "tailwindcss -i src/styles.css -o public/output.css"
 	},
 	"keywords": [],
 	"author": "",
