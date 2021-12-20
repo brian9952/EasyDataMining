@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Welcome to dashboard!</h1>
+    <a href="proximity_matrix">proximity_matrix</a>
+    <a href="frequent_pattern">frequent pattern analysis</a>
+    <a href="clustering">clustering</a>
+    <a href="classification">classification</a>
+    <a href="outliers">outliers detection</a>
+
+    <h2>pilih input variables dataset:</h2>
+    
+    {% for attribute in attributes %}
+    <label><input type="checkbox" name="attribute" value="{{ attribute }}">{{ attribute }}</label>
+    {% endfor %}
+    <br>
+    <button id="attribute_submit">Submit</button>
+
+    <h3 id="ylabel_title" style="display: none;">pilih output variables of dataset:</h3>
+    <div id="attribute_ylabel" style="display: none;">
+    </div>
+    <button id="ylabel_submit" style="display: none;">Submit</button>
+
+    <h3 id="categorical_title" style="display: none;">pilih categorical label untuk diencode</h3>
+    <div id="categoricalLabelDiv" style="display: none;">
+    </div>
+
+    <br>
+
+    <div id="train" style="display: none;">
+        <button id="Submit">Train</button>
+        <button id="SubmitScale">Train & Scale</button>
+    </div>
+
+    <div id="accuracy_div" style="display: none;">
+        <p id="accuracy_title"></p>
+    </div>
+
+    <div id="input_div" style="display: none;">
+        <h3>Input new data</h3>
+        <div id="input_text"></div>
+        <button id="inputNewData">Submit</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='classification.js') }}"></script>
+</body>
+</html>

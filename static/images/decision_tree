@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, style="filled", color="black", fontname="helvetica"] ;
+edge [fontname="helvetica"] ;
+0 [label="bmi <= 33.45\nentropy = 0.627\nsamples = 2904\nvalue = [2448, 456]\nclass = s", fillcolor="#ea985e"] ;
+1 [label="bmi <= 28.533\nentropy = 0.581\nsamples = 2073\nvalue = [1785, 288]\nclass = s", fillcolor="#e99559"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="age <= 46.868\nentropy = 0.648\nsamples = 1086\nvalue = [906, 180]\nclass = s", fillcolor="#ea9a60"] ;
+1 -> 2 ;
+3 [label="entropy = 0.575\nsamples = 871\nvalue = [752, 119]\nclass = s", fillcolor="#e99558"] ;
+2 -> 3 ;
+4 [label="entropy = 0.86\nsamples = 215\nvalue = [154, 61]\nclass = s", fillcolor="#efb387"] ;
+2 -> 4 ;
+5 [label="bmi <= 29.796\nentropy = 0.498\nsamples = 987\nvalue = [879, 108]\nclass = s", fillcolor="#e89051"] ;
+1 -> 5 ;
+6 [label="entropy = 0.276\nsamples = 294\nvalue = [280, 14]\nclass = s", fillcolor="#e68743"] ;
+5 -> 6 ;
+7 [label="entropy = 0.573\nsamples = 693\nvalue = [599, 94]\nclass = s", fillcolor="#e99558"] ;
+5 -> 7 ;
+8 [label="bmi <= 33.582\nentropy = 0.726\nsamples = 831\nvalue = [663, 168]\nclass = s", fillcolor="#eca16b"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="age <= 41.174\nentropy = 0.993\nsamples = 20\nvalue = [11, 9]\nclass = s", fillcolor="#fae8db"] ;
+8 -> 9 ;
+10 [label="entropy = 0.811\nsamples = 12\nvalue = [9, 3]\nclass = s", fillcolor="#eeab7b"] ;
+9 -> 10 ;
+11 [label="entropy = 0.811\nsamples = 8\nvalue = [2, 6]\nclass = m", fillcolor="#7bbeee"] ;
+9 -> 11 ;
+12 [label="bmi <= 41.799\nentropy = 0.714\nsamples = 811\nvalue = [652, 159]\nclass = s", fillcolor="#eba069"] ;
+8 -> 12 ;
+13 [label="entropy = 0.688\nsamples = 729\nvalue = [595, 134]\nclass = s", fillcolor="#eb9d66"] ;
+12 -> 13 ;
+14 [label="entropy = 0.887\nsamples = 82\nvalue = [57, 25]\nclass = s", fillcolor="#f0b890"] ;
+12 -> 14 ;
+}

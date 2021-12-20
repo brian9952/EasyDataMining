@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/output.css') }}" />
+<link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
+<body>
+    <h1>Welcome to dashboard!</h1>
+    <a href="proximity_matrix">proximity_matrix</a>
+    <a href="frequent_pattern">frequent pattern analysis</a>
+    <a href="clustering">clustering</a>
+    <a href="classification">classification</a>
+    <a href="outliers">outliers detection</a>
+
+    <br>
+    <br>
+    <br>
+
+    <h2>pilih attribut dataset atau visualisasi langsung menggunakan PCA:</h2>
+
+    {% for attribute in attributes %}
+    <label><input type="checkbox" name="attribute" value="{{ attribute }}">{{ attribute }}<label for=""><br></label>
+    {% endfor %}
+
+    <br>
+    <button id="trainSelect">Slice</button><br>
+    <button id="trainScaling">Slice and Scale</button>
+    <br>
+    
+    <div id="inputRange" style="display: none;">
+            <h3>input range of #num until #num</h3>
+            <label for="firstRange">first range:</label>
+            <input id="firstRange" type="text"><br>
+            <label for="lastRange">last range:</label>
+            <input id="lastRange" type="text"><br>
+            <button id="rangeButton">Submit</button>
+    </div>
+
+    <div id="proxi_table"></div>
+
+    <button id="clearTable">Clear</button>
+
+<script src="{{ url_for('static', filename='proximatrix.js') }}"></script>
+</body>
+</html>

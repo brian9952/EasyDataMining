@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Welcome to dashboard!</h1>
+    <a href="proximity_matrix">proximity_matrix</a>
+    <a href="frequent_pattern">frequent pattern analysis</a>
+    <a href="clustering">clustering</a>
+    <a href="classification">classification</a>
+    <a href="outliers">outliers detection</a>
+
+    <h2>pilih attribute yang akan diproses:</h2>
+    
+    {% for attribute in attributes %}
+    <label><input type="checkbox" name="attribute" value="{{ attribute }}">{{ attribute }}</label>
+    {% endfor %}
+    <br>
+    <button id="attribute_submit">Submit</button>
+
+    <div id="outliersResult" style="display: none;"></div>
+
+<script src="{{ url_for('static', filename='outliers.js') }}"></script>
+</body>
+</html>

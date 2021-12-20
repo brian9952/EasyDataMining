@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
+</head>
+<body>
+    <h1>Welcome to dashboard!</h1>
+    <a href="proximity_matrix">proximity_matrix</a>
+    <a href="frequent_pattern">frequent pattern analysis</a>
+    <a href="clustering">clustering</a>
+    <a href="classification">classification</a>
+    <a href="outliers">outliers detection</a>
+
+    <br>
+    <br>
+    <br>
+
+    <h2>pilih attribut dataset atau menggunakan PCA</h2>
+
+    {% for attribute in attributes %}
+    <label><input type="checkbox" name="attribute" value="{{ attribute }}">{{ attribute }}</label>
+    {% endfor %}
+
+    <br>
+
+    <button id="attribute_submit">Submit</button>
+    <br>
+    
+    <h3 id="categoricalTitle" style="display: none;">pilih atribut categorical untuk di encode:</h3>
+    <div id="categoricalInputs" style="display: none;">
+    </div>
+
+    <br>
+    <br>
+
+    <div id="KForm" style="display: none;">
+    <label for="inputK">Pilih K:</label>
+    <input id="inputK" type="input"><br>
+    </div>
+
+    <br>
+    <br>
+    
+    <button id="categoricalButton" style="display: none;">Cluster</button>
+    <button id="categoricalButtonScale" style="display: none;">Scale and Cluster</button>
+
+    <br>
+    <br>
+    
+    <h3>Input new data:</h3>
+    <div id="dataInput" style="display: none;">
+    </div>
+    <button id="inputNewData" style="display: none;">Submit</button>
+
+    <img id="visImg" src="" alt="">
+
+    <button id="refreshImage">Refresh Image</button>
+
+
+<script src="{{ url_for('static', filename='clustering.js') }}"></script>
+</body>
+</html>

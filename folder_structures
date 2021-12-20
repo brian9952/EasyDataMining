@@ -1,0 +1,13 @@
+- algorithms
+    - proximatrix.py
+    - fpa.py
+    - clustering.py
+    - classification.py
+    - outliers.py
+- static
+    - script.js
+- styles
+    - style.css
+- templates
+    - htmls
+main.py

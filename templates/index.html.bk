@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <form action="upload_file" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <select id="algorithms" name="algorithms">
+            <option value="proximity_matrix">proximity matrix</option>
+            <option value="frequent_pattern">frequent pattern</option>
+            <option value="clustering">clustering</option>
+            <option value="classification">classification</option>
+            <option value="outliers">outliers</option>
+        </select>
+        <button type="submit">POST</button>
+    </form>
+</body>
+</html>

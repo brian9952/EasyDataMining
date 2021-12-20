@@ -6,7 +6,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Easy Data Mining</title>
-	<link rel="stylesheet" href="public/output.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/output.css') }}" />
+    <link rel="stylesheet" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css">
 </head>
 
 <body class="bg-yellow-100">
@@ -238,35 +241,32 @@
 		<div class="py-10 mt-5 bg-indigo-400 rounded-3xl">
 			<div class="container bg-yellow-200">
 				<div class="container bg-indigo-200 h-16 text-center">
-					<div class=" grid grid-cols-5">
+					<div class="grid grid-cols-5">
 						<label for="features" class="mt-5">Choose Features:</label>
-						<select name="features" multiple
-							class="bg-indigo-100 mt-2 h-12 border border-gray-300 rounded-md shadow-sm pr-10 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
-							<option value="BCA">BCA</option>
-							<option value="Mandiri">Mandiri</option>
-							<option value="BNI">BNI</option>
-							<option value="OCBC">OCBC</option>
-						</select>
 
-						<label for="label" class="mt-5"> Choose Label:</label>
+                        <div class="overflow-auto bg-indigo-100 mt-2 h-12 border border-gray-300 rounded-md shadow-sm pr-10 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
+                            {% for attribute in attributes %}
+                            <input type="checkbox" name="attribute" value="{{ attribute }}">
+                            <label for="form-check-label inline-block text-gray-800">{{ attribute }}</label>
+                            <br>
+                            {% endfor %}
+                        </div>
 
-						<select name="label"
-							class="bg-red-100 mt-4 h-8 border border-gray-300 rounded-md shadow-sm pr-10 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ">
-							<option value="BCA">BCA</option>
-							<option value="Mandiri">Mandiri</option>
-							<option value="BNI">BNI</option>
-							<option value="OCBC">OCBC</option>
-						</select>
-
-						<button
-							class="bg-blue-500 ml-20 w-20 h-8 mt-4 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-							Train
-						</button>
+                        <div>
+						    <button id="trainSelect"
+						    	class="bg-blue-500 ml-10 w-30 h-8 mt-4 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                                Slice
+                            </button>
+						    <button id="trainScaling"
+						    	class="bg-blue-500 ml-10 w-30 h-8 mt-4 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                                Slice & Scale
+                            </button>
+                        </div>
 					</div>
 				</div>
 				<div class="grid grid-cols-11">
 					<div class="flex flex-col gap-1 bg-indigo-200">
-						<button>
+						<button onclick="location.href='classification'">
 							<div class="flex h-24 bg-red-300 hover:bg-red-500 rounded-3xl">
 								<div class="m-auto">
 
@@ -275,7 +275,7 @@
 								</div>
 							</div>
 						</button>
-						<button>
+						<button onclick="location.href='clustering'">
 							<div class="flex h-24 bg-green-300 hover:bg-green-500 rounded-3xl">
 								<div class="m-auto">
 
@@ -284,7 +284,7 @@
 								</div>
 							</div>
 						</button>
-						<button>
+						<button onclick="location.href='proximity_matrix'">
 							<div class="flex h-24 bg-blue-300 hover:bg-blue-500 text-center rounded-3xl">
 								<div class="m-auto">
 
@@ -293,7 +293,7 @@
 								</div>
 							</div>
 						</button>
-						<button>
+						<button onclick="location.href='frequent_pattern'">
 							<div class="flex h-24 bg-indigo-300 hover:bg-indigo-500 text-center rounded-3xl">
 								<div class="m-auto">
 
@@ -302,7 +302,7 @@
 								</div>
 							</div>
 						</button>
-						<button>
+						<button onclick="location.href='outliers'">
 							<div class="flex h-24 bg-pink-300 hover:bg-pink-500 rounded-3xl">
 								<div class="m-auto">
 
@@ -313,43 +313,31 @@
 						</button>
 					</div>
 					<div class="container bg-yellow-200 col-span-5">
-						<div class="container m-4 px-4 py-4 bg-yellow-100">
-
-							<form action="/action_page.php">
-								<div class="flex items-center border-b border-red-500 py-6">
-									<label for="fname">BCA:</label><br>
-									<input type="text" id="fname" name="fname"
-										class="ml-5 focus:outline-none bg-white m-auto"><br>
-								</div>
-								<div class="flex items-center border-b border-red-500 py-6 m-auto">
-									<label for="fname">Mandiri:</label><br>
-									<input type="text" id="fname" name="fname"
-										class="ml-5 focus:outline-none bg-white"><br>
-								</div>
-								<div class="flex items-center border-b border-red-500 py-6 ">
-									<label for="fname">OCBC:</label><br>
-									<input type="text" id="fname" name="fname"
-										class="ml-5 focus:outline-none bg-white"><br>
-								</div>
-								<div class="flex items-center border-b border-red-500 py-6">
-									<label for="fname">BNI:</label><br>
-									<input type="text" id="fname" name="fname"
-										class="ml-5 focus:outline-none bg-white"><br>
-								</div>
-								<button
-									class="bg-blue-500 w-20 h-8 mt-8 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-									Predict
-								</button>
-							</form>
+						<div class="container m-4 px-4 py-4 bg-yellow-100 content-center">
+                            <h3>Input range of data: </h3>
+							<div class="flex items-center border-b border-red-500 py-6">
+								<label for="fname">First Range:</label><br>
+								<input type="text" id="firstRange" name="fname"
+									class="ml-5 focus:outline-none bg-white m-auto"><br>
+							</div>
+							<div class="flex items-center border-b border-red-500 py-6 m-auto">
+								<label for="fname">Last Range:</label><br>
+								<input type="text" id="lastRange" name="fname"
+									class="ml-5 focus:outline-none bg-white"><br>
+							</div>
+							<button id="rangeButton"
+								class="bg-blue-500 w-28 h-8 mt-8 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                                Calculate
+							</button>
 						</div>
 					</div>
 					<div class="bg-red-200 col-span-5">
-						<div class="container m-4 px-4 py-4 bg-red-100">
-							<img src="src/clustering.jpg">
-						</div>
+						<div id="proxi_table" class="container m-4 px-4 py-4 bg-red-100 justify-center"></div>
 					</div>
 				</div>
 			</div>
+
+<script src="{{ url_for('static', filename='proximatrix.js') }}"></script>
 </body>
 
 </html>

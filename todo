@@ -1,0 +1,18 @@
+index -> welcome to -> input file
+-> to dashboard -> 
+    1. proximity matrix
+    2. frequent pattern
+    3. clustering
+    4. classification
+    5. outliers detection
+
+if 1:
+    check attribtues -> pca to 2 dimension -> calculate proximatrix
+else if 2:
+    frequent pattern -> fp-growth -> check attributes -> calculate
+else if 3:
+    clustering -> check attributes -> calculate
+else if 4:
+    classification -> check attributes -> calculate
+else if 5:
+    outliers detection -> check attribtues -> calculate
